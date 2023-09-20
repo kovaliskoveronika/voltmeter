@@ -41,8 +41,8 @@ pip install -r requirements.txt
 ## Demo
 
 Voltmeter must automatically open in your browser and must look like this
-![Voltmeter](https://github.com/kovaliskoveronika/voltmeter/blob/develop/voltmeter.PNG)
+![Voltmeter](https://github.com/kovaliskoveronika/voltmeter/blob/main/screenshots/voltmeter.PNG)
 
 In the console, you will get statistical data(this example is for file statistic_data.txt)
 
-![Statistic](https://github.com/kovaliskoveronika/voltmeter/blob/develop/statistic_data.PNG)
+![Statistic](https://github.com/kovaliskoveronika/voltmeter/blob/main/screenshots/statistic_data.PNG)
