@@ -1,14 +1,14 @@
 # Voltmeter
 
-This project is created for measuring voltage using Arduino as measuring device. Here you find to files to measuring voltage.
+This project was created for measuring voltage using Arduino as a measuring device. Here you find two files to measure voltage.
 
 ### Get_data_from_arduino
 
-Here you will find python script, which catches arduino data and display it.
+Here you will find a Python script, that catches Arduino data and displays it.
 
 ### Get_data_from_file
 
-This script visualize data, which you can store in txt file, in a case you don't have access to Arduino.
+This script visualizes data, which you can store in a Txt file, in case you don't have access to Arduino.
 
 ## Check it out
 
@@ -41,5 +41,8 @@ pip install -r requirements.txt
 ## Demo
 
 Voltmeter must automatically open in your browser and must look like this
+![Voltmeter](https://github.com/kovaliskoveronika/voltmeter/blob/develop/voltmeter.PNG)
 
-In console you will get statistic data
+In the console, you will get statistical data(this example is for file statistic_data.txt)
+
+![Statistic](https://github.com/kovaliskoveronika/voltmeter/blob/develop/statistic_data.PNG)
