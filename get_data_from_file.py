@@ -25,7 +25,6 @@ for line in lines:
 
 mean, median, mode, std_dev = calculate_statistics(voltage)
 
-
 print("\nStatistics:")
 print(f"Mean: {mean:.2f} V")
 print(f"Median: {median:.2f} V")
