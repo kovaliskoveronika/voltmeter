@@ -3,15 +3,25 @@ import math
 import numpy as np
 
 
-def visualize_data():
-
-    scene = canvas(
-        width=400, height=400, center=vector(0, 0, 0), background=color.white
+def create_scene() -> canvas:
+    return canvas(
+        width=400,
+        height=400,
+        center=vector(0, 0, 0),
+        background=color.white
     )
 
-    outline = box(pos=vector(0, 0, 0), size=vector(2.5, 2.5, 0.1), color=color.black)
 
-    Face = cylinder(
+def create_outline() -> box:
+    return box(
+        pos=vector(0, 0, 0),
+        size=vector(2.5, 2.5, 0.1),
+        color=color.black
+    )
+
+
+def create_cypher() -> cylinder:
+    return cylinder(
         pos=vector(0, 0, 0),
         radius=1,
         color=color.white,
@@ -19,17 +29,17 @@ def visualize_data():
         length=0.055,
     )
 
-    tick_start = 3 * math.pi / 4
-    tick_end = math.pi / 4
-    tick_radius = 0.005
-    tick_arc_radius = 1
-    tick_length = 0.05
-    x = tick_arc_radius
-    y = -0.4
-    z = 0.06
-    tick_origin = vector(x, y, z)
-    volt = 0
 
+def create_ticks(
+        volt: int,
+        tick_end: float,
+        tick_start: float,
+        tick_radius: float,
+        tick_origin: vector,
+        tick_length: float,
+        x: float,
+        y: float
+) -> None:
     for increment in np.linspace(tick_end, tick_start, 25):
         if volt % 5 == 0:
             radius = tick_radius * 2
@@ -46,6 +56,14 @@ def visualize_data():
         ticks.length = tick_length
         volt = volt + 1
 
+
+def create_text(
+        tick_arc_radius: float,
+        tick_length: float,
+        tick_start: float,
+        tick_end: float,
+        y: float
+) -> (float, float):
     text_radius = tick_arc_radius * 1.1
     text_color = color.black
     text_height = 2 * tick_length
@@ -64,10 +82,31 @@ def visualize_data():
             align="center",
             depth=text_depth,
         )
+    return text_height, text_depth
 
-    volt_text = "Voltmeter"
+
+def visualize_data() -> (arrow, float, float):
+    scene = create_scene()
+    outline = create_outline()
+    cypher = create_cypher()
+
+    tick_start = 3 * math.pi / 4
+    tick_end = math.pi / 4
+    tick_radius = 0.005
+    tick_arc_radius = 1
+    tick_length = 0.05
+    x = tick_arc_radius
+    y = -0.4
+    z = 0.06
+    tick_origin = vector(x, y, z)
+    volt = 0
+
+    create_ticks(volt, tick_end, tick_start, tick_radius, tick_origin, tick_length, x, y)
+
+    text_height, text_depth = create_text(tick_arc_radius, tick_length, tick_start, tick_end, y)
+
     text(
-        text=volt_text,
+        text="Voltmeter",
         pos=vector(0, -0.6, 0.06),
         color=color.black,
         height=2 * text_height,
